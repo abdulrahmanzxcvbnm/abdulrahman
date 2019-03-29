@@ -1,32 +1,98 @@
-# Prerequisites
-*.d
+#include<conio.h>
+#include<iostream.h>
+#include<graphics.h>
+#include<dos.h>
+#include<math.h>
+#include<stdlib.h>
+void main()
+{
+int gm,gd,x=650,y=415,x1=40,y1=410,dis;
+char k;
+detectgraph(&gm,&gd);
+initgraph(&gm,&gd," ");
+while(1){
+for(x=650;x>-30;x--){
+cleardevice();
+circle(x1,y1,20);
+line(0,430,700,430);
+circle(x,y,15);
+delay(5);
+if(kbhit()){
+cleardevice();
+circle(x,y,15);
+delay(5);
+j:
+k=getch();
+if(k=='q'){
+exit(0);
+}    //if
+if(k=='w'){
+cleardevice();
+circle(x,y,15);
+delay(5);
+cout<<"a";
+for(;y1>350;y1--){
+x--;
+cleardevice();
+circle(x1,y1,20);
+line(0,430,700,430);
+circle(x,y,15);
+delay(5);
+dis=((y1-y)*(y1-y))+((x1-x)*(x1-x));
+if(dis<0){
+dis=dis* -1;
+dis=sqrt(dis);
+}
+else{
+dis=sqrt(dis);
+}
+if(dis==35){
+cout<<"game over";
+delay(1000);
+exit(0);
+}
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+}
+for(;y1<410;y1++){
+x--;
+cleardevice();
+circle(x1,y1,20);
+line(0,430,700,430);
+circle(x,y,15);
+delay(5);
+dis=((y1-y)*(y1-y))+((x1-x)*(x1-x));
+if(dis<0){
+dis=dis* -1;
+dis=sqrt(dis);
+}
+else{
+dis=sqrt(dis);
+}
+if(dis==35){
+cout<<"game over";
+delay(1000);
+exit(0);
+}
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+}
+}
+}
+if(kbhit())
+goto j;
+dis=((y1-y)*(y1-y))+((x1-x)*(x1-x));
+if(dis<0){
+dis=dis* -1;
+dis=sqrt(dis);
+}
+else{
+dis=sqrt(dis);
+}
+if(dis==35){
+cout<<"game over";
+delay(1000);
+exit(0);
+}
+}//for
+}//while
+getch();
+}
